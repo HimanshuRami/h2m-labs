@@ -1,0 +1,26 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'>
+  <rect width='1200' height='630' fill='#0D0F14'/>
+  <!-- grid lines -->
+  <defs>
+    <pattern id='grid' width='64' height='64' patternUnits='userSpaceOnUse'>
+      <path d='M 64 0 L 0 0 0 64' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/>
+    </pattern>
+    <radialGradient id='glow' cx='50%' cy='30%' r='60%'>
+      <stop offset='0%' stop-color='#4F7EFF' stop-opacity='0.22'/>
+      <stop offset='60%' stop-color='#6366F1' stop-opacity='0.08'/>
+      <stop offset='100%' stop-color='transparent' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect width='1200' height='630' fill='url(#grid)'/>
+  <rect width='1200' height='630' fill='url(#glow)'/>
+  <!-- Logo mark -->
+  <rect x='548' y='195' width='64' height='64' rx='14' fill='#151821' stroke='rgba(255,255,255,0.08)' stroke-width='1'/>
+  <path d='M 566 215 v 24 M 594 215 v 24 M 566 227 h 28' stroke='#4F7EFF' stroke-width='3.5' stroke-linecap='round'/>
+  <!-- Wordmark -->
+  <text x='600' y='310' font-family='system-ui, -apple-system, sans-serif' font-size='48' font-weight='700' fill='white' text-anchor='middle' letter-spacing='-1'>H2M Labs</text>
+  <!-- Tagline -->
+  <text x='600' y='358' font-family='system-ui, -apple-system, sans-serif' font-size='22' font-weight='400' fill='rgba(255,255,255,0.55)' text-anchor='middle'>Building Software That Works For You</text>
+  <!-- URL pill -->
+  <rect x='458' y='390' width='284' height='40' rx='20' fill='rgba(79,126,255,0.12)' stroke='rgba(79,126,255,0.25)' stroke-width='1'/>
+  <text x='600' y='415' font-family='system-ui, -apple-system, sans-serif' font-size='16' font-weight='500' fill='#4F7EFF' text-anchor='middle'>h2mlabs.in</text>
+</svg>

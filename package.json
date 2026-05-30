@@ -1,0 +1,20 @@
+{
+  "name": "h2m-labs",
+  "version": "1.0.0",
+  "description": "H2M Labs — SaaS product studio website",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/style.css --minify",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@tailwindcss/cli": "^4.3.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.3.0"
+  }
+}

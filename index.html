@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H2M Labs — SaaS Product Studio</title>
+  <meta name="description" content="H2M Labs is an indie product studio based in India, building software that actually earns its keep." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="H2M Labs — SaaS Product Studio" />
+  <meta property="og:description" content="H2M Labs is an indie product studio based in India, building software that actually earns its keep." />
+  <meta property="og:url" content="https://h2mlabs.in" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://h2mlabs.in/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="H2M Labs — SaaS Product Studio" />
+  <meta name="twitter:description" content="H2M Labs is an indie product studio based in India, building software that actually earns its keep." />
+  <meta name="twitter:image" content="https://h2mlabs.in/og-image.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Self-hosted Inter font -->
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url('/fonts/inter-latin-800-normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+  </style>
+
+  <!-- Built stylesheet (Tailwind CLI output) -->
+  <link rel="stylesheet" href="/dist/style.css" />
+
+  <style>
+    :root { color-scheme: dark; }
+    html, body { background: #0D0F14; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-feature-settings: "cv02","cv03","cv04","cv11";
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    ::selection { background: rgba(79,126,255,0.30); color: #fff; }
+
+    .bg-field {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-color: #0D0F14;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 78%);
+              mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 78%);
+    }
+    .bg-dots {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px);
+      background-size: 22px 22px;
+      -webkit-mask-image: radial-gradient(ellipse 55% 45% at 50% 8%, #000 0%, transparent 70%);
+              mask-image: radial-gradient(ellipse 55% 45% at 50% 8%, #000 0%, transparent 70%);
+      opacity: 0.5;
+    }
+    .bg-glow {
+      position: fixed; left: 50%; top: -260px; transform: translateX(-50%);
+      width: 1100px; height: 760px; z-index: 0; pointer-events: none;
+      background: radial-gradient(closest-side, rgba(79,126,255,0.22), rgba(99,102,241,0.10) 45%, transparent 72%);
+      filter: blur(20px);
+      animation: breathe 9s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%,100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+      50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+    }
+
+    #nav { transition: background-color .35s ease, border-color .35s ease, backdrop-filter .35s ease; }
+    #nav.scrolled {
+      background-color: rgba(13,15,20,0.72);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .btn-accent {
+      background: linear-gradient(180deg, #5C88FF 0%, #4F7EFF 100%);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 24px -8px rgba(79,126,255,0.65);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .btn-accent:hover { filter: brightness(1.07); transform: translateY(-1px); }
+
+    .card { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(79,126,255,0.45);
+      box-shadow: 0 24px 50px -24px rgba(79,126,255,0.45), 0 0 0 1px rgba(79,126,255,0.10);
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @keyframes drift { from { background-position: 0 0, 0 0; } to { background-position: 64px 64px, 64px 64px; } }
+    .bg-field { animation: drift 26s linear infinite; }
+
+    .hero-wrap { position: relative; }
+    .spotlight {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: 32px;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 35%), rgba(79,126,255,0.14), transparent 62%);
+      opacity: 0; transition: opacity .5s ease;
+    }
+    .hero-wrap:hover .spotlight { opacity: 1; }
+
+    .hero-h1 .word { display: inline-block; opacity: 0; transform: translateY(16px); transition: opacity .55s cubic-bezier(.2,.7,.2,1), transform .55s cubic-bezier(.2,.7,.2,1); }
+    .hero-h1.in .word { opacity: 1; transform: none; }
+
+    .glow-card { position: relative; overflow: hidden; }
+    .glow-card::after {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+      background: radial-gradient(240px circle at var(--cx, 50%) var(--cy, 50%), rgba(79,126,255,0.16), transparent 58%);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .glow-card:hover::after { opacity: 1; }
+    .glow-card > * { position: relative; z-index: 1; }
+
+    @property --ba { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+    @keyframes spinBorder { to { --ba: 360deg; } }
+    .live-card { position: relative; }
+    .live-card::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; z-index: 0; pointer-events: none;
+      background: conic-gradient(from var(--ba), transparent 0deg, transparent 66%, rgba(79,126,255,0.55) 82%, rgba(150,176,255,0.95) 90%, transparent 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: spinBorder 6s linear infinite;
+    }
+
+    .pulse-dot { position: relative; }
+    .pulse-dot::after {
+      content: ""; position: absolute; inset: 0; border-radius: 9999px; background: inherit;
+      animation: pulseRing 2.4s ease-out infinite;
+    }
+    @keyframes pulseRing { 0% { transform: scale(1); opacity: .7; } 70%,100% { transform: scale(3.2); opacity: 0; } }
+
+    #mobileMenu { transition: opacity .25s ease, transform .25s ease; transform-origin: top; }
+    #mobileMenu.hidden-menu { opacity: 0; transform: scaleY(.96) translateY(-6px); pointer-events: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bg-glow, .bg-field, .live-card::before, .pulse-dot::after { animation: none; }
+      .reveal, .hero-h1 .word { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="text-white/85 antialiased relative">
+
+  <div class="bg-field" aria-hidden="true"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <nav id="nav" class="fixed top-0 inset-x-0 z-50 border-b border-transparent">
+    <div class="mx-auto max-w-[1120px] px-5 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5" aria-label="H2M Labs home">
+        <span class="grid place-items-center h-8 w-8 rounded-lg border border-white/[0.08] bg-[#151821]" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+            <path d="M7 5v14M17 5v14M7 12h10" stroke="#4F7EFF" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="text-[15px] font-semibold tracking-tight text-white">H2M&nbsp;Labs</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm text-white/65">
+        <a href="#products" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">Products</a>
+        <a href="#about" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">About</a>
+        <a href="#contact" class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">Contact</a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="#products" class="btn-accent inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4F7EFF] focus-visible:ring-offset-[#0D0F14]">
+          Our Products <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <button id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"
+        class="md:hidden grid place-items-center h-9 w-9 rounded-lg border border-white/[0.08] bg-[#151821]/60 text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF]">
+        <svg id="iconOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg id="iconClose" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden-menu md:hidden border-t border-white/[0.08] bg-[#0D0F14]/95 backdrop-blur-xl" role="navigation" aria-label="Mobile menu">
+      <div class="px-5 py-4 flex flex-col gap-1 text-[15px]">
+        <a href="#products" class="mobile-link py-2.5 text-white/75 hover:text-white transition-colors">Products</a>
+        <a href="#about" class="mobile-link py-2.5 text-white/75 hover:text-white transition-colors">About</a>
+        <a href="#contact" class="mobile-link py-2.5 text-white/75 hover:text-white transition-colors">Contact</a>
+        <a href="#products" class="mobile-link btn-accent mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2.5 font-medium text-white">Our Products →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="relative z-10">
+
+    <!-- HERO -->
+    <section class="px-5 sm:px-6 pt-36 sm:pt-44 pb-20 sm:pb-28">
+      <div class="hero-wrap mx-auto max-w-3xl text-center">
+        <div class="spotlight" aria-hidden="true"></div>
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#151821]/70 px-3.5 py-1.5 text-xs font-medium text-white/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#4F7EFF] pulse-dot" aria-hidden="true"></span>
+          <span>One person · Building in the open from India</span>
+        </div>
+
+        <h1 class="hero-h1 reveal mt-7 text-[2.5rem] leading-[1.07] sm:text-6xl font-extrabold tracking-tight text-white text-balance">
+          <span class="word" style="transition-delay:.04s">Software</span>
+          <span class="word" style="transition-delay:.10s">you'll</span>
+          <span class="word" style="transition-delay:.16s">actually</span>
+          <span class="word" style="transition-delay:.22s">want</span>
+          <span class="word" style="transition-delay:.28s">to</span>
+          <span class="word" style="transition-delay:.34s">keep&nbsp;paying&nbsp;for.</span>
+        </h1>
+
+        <p class="reveal mt-6 text-base sm:text-lg leading-relaxed text-white/60 max-w-xl mx-auto text-pretty">
+          H2M Labs is a tiny, independent studio in India. One developer, a small shelf of products, and a stubborn belief that good software doesn't take a hundred people to build.
+        </p>
+
+        <div class="reveal mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#products" class="btn-accent inline-flex items-center gap-1.5 rounded-lg px-5 py-3 text-sm font-semibold text-white w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4F7EFF] focus-visible:ring-offset-[#0D0F14]">
+            See what we've built <span aria-hidden="true">→</span>
+          </a>
+          <a href="#about" class="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-[#151821]/60 px-5 py-3 text-sm font-medium text-white/85 hover:bg-[#1B1F2A] hover:border-white/15 transition-colors w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded-lg">
+            The story behind it
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="px-5 sm:px-6 py-20 sm:py-28 scroll-mt-20">
+      <div class="mx-auto max-w-[1120px]">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div class="reveal">
+            <span class="text-xs font-semibold uppercase tracking-[0.18em] text-[#4F7EFF]/90">About</span>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">So what is H2M Labs?</h2>
+            <div class="mt-6 space-y-5 text-white/60 leading-relaxed text-pretty">
+              <p>Honestly? It's one developer who got tired of software that tries to do everything, and started building the simpler version instead.</p>
+              <p>Every product begins the same way — a problem I kept bumping into, no tool I actually liked, so I made one. No committees, no features nobody asked for. Just small tools that do one job well.</p>
+              <p>Everything ships under a single name — <span class="text-white/85 font-medium">H2M Labs</span> — so when you spot it on a statement, you know exactly who built the thing and where to find them.</p>
+            </div>
+          </div>
+
+          <div class="reveal grid sm:grid-cols-2 gap-4">
+            <div class="card glow-card rounded-xl border border-white/[0.08] bg-[#151821] p-5">
+              <div class="text-2xl font-bold text-white">1+ live products</div>
+              <div class="mt-1 text-sm text-white/50">Out in the world, getting used</div>
+            </div>
+            <div class="card glow-card rounded-xl border border-white/[0.08] bg-[#151821] p-5">
+              <div class="text-2xl font-bold text-white">One studio, many tools</div>
+              <div class="mt-1 text-sm text-white/50">All under H2M Labs</div>
+            </div>
+            <div class="card glow-card rounded-xl border border-white/[0.08] bg-[#151821] p-5">
+              <div class="text-2xl font-bold text-white">Made in India</div>
+              <div class="mt-1 text-sm text-white/50">Used pretty much everywhere</div>
+            </div>
+            <div class="card glow-card rounded-xl border border-white/[0.08] bg-[#151821] p-5">
+              <div class="text-2xl font-bold text-white">Bootstrapped</div>
+              <div class="mt-1 text-sm text-white/50">No investors, no pressure</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="px-5 sm:px-6 py-20 sm:py-28 scroll-mt-20">
+      <div class="mx-auto max-w-[1120px]">
+        <div class="reveal max-w-2xl">
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-[#4F7EFF]/90">Products</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">What we've shipped</h2>
+          <p class="mt-4 text-white/60 leading-relaxed text-pretty">Each one stands on its own, does one thing well, and is built and backed by H2M Labs.</p>
+        </div>
+
+        <div class="reveal mt-10 grid md:grid-cols-2 gap-5">
+          <!-- WatchMySubs -->
+          <article class="card glow-card live-card group rounded-2xl border border-white/[0.08] bg-[#151821] p-7 flex flex-col">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-300">
+                <span class="pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
+                <span>Live</span>
+              </span>
+              <span class="text-xs text-white/40" aria-hidden="true">watchmysubs.com</span>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">WatchMySubs</h3>
+            <p class="text-sm text-[#4F7EFF]/90 mt-1">Subscription Management</p>
+            <p class="mt-4 text-sm text-white/60 leading-relaxed flex-1 text-pretty">Subscriptions are sneaky. WatchMySubs keeps every one in a single place, tells you what's about to renew, and nudges you before you get charged for that thing you forgot you signed up for.</p>
+            <a href="https://watchmysubs.com" target="_blank" rel="noopener noreferrer"
+               class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-white hover:text-[#4F7EFF] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">
+              Take a look <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+          </article>
+
+          <!-- Coming soon -->
+          <article class="card glow-card rounded-2xl border border-white/[0.08] border-dashed bg-[#151821]/60 p-7 flex flex-col">
+            <div>
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-amber-400/25 bg-amber-400/10 px-2.5 py-1 text-xs font-medium text-amber-300">
+                <span class="h-1.5 w-1.5 rounded-full bg-amber-400" aria-hidden="true"></span>
+                Coming Soon
+              </span>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white/85">Something new</h3>
+            <p class="text-sm text-white/40 mt-1">In the workshop</p>
+            <p class="mt-4 text-sm text-white/50 leading-relaxed flex-1 text-pretty">There's another one taking shape right now — solving a problem I happen to be annoyed by, which is usually how these start. It'll be worth the wait.</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 text-sm text-white/30" aria-label="Status: Almost there">Almost there</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT TRUST -->
+    <section class="px-5 sm:px-6 py-20 sm:py-28" aria-labelledby="trust-heading">
+      <div class="mx-auto max-w-[1120px]">
+        <div class="reveal rounded-3xl border border-white/[0.08] bg-[#1B1F2A]/70 p-8 sm:p-12 relative overflow-hidden">
+          <div class="absolute -top-24 right-0 w-72 h-72 rounded-full bg-[#4F7EFF]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+          <div class="relative max-w-2xl mx-auto text-center">
+            <div class="inline-flex items-center justify-center h-11 w-11 rounded-xl border border-white/[0.08] bg-[#151821] text-[#4F7EFF] mb-5" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.4-3 8.4-7 9.6C8 19.4 5 15.4 5 11V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 12l1.8 1.8L15 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h2 id="trust-heading" class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Wait — why does my statement say "H2M Labs"?</h2>
+            <div class="mt-6 space-y-5 text-white/60 leading-relaxed text-pretty">
+              <p>Good question, and nothing's wrong. If you're paying for one of our products — like WatchMySubs — <span class="text-white/90 font-medium">"H2M Labs"</span> is the name that shows up on your bank statement or invoice.</p>
+              <p>That's just us. H2M Labs is the registered business behind every product here, and we run all payments through a single account so your billing stays simple and predictable.</p>
+            </div>
+          </div>
+
+          <div class="relative mt-10 grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div class="glow-card rounded-xl border border-white/[0.08] bg-[#151821]/70 p-5 text-center sm:text-left">
+              <div class="text-lg" role="img" aria-label="Lock">🔒</div>
+              <p class="mt-2 text-sm text-white/60 leading-relaxed">Payments run through established, secure gateways — we never see your card details.</p>
+            </div>
+            <div class="glow-card rounded-xl border border-white/[0.08] bg-[#151821]/70 p-5 text-center sm:text-left">
+              <div class="text-lg" role="img" aria-label="Office building">🏢</div>
+              <p class="mt-2 text-sm text-white/60 leading-relaxed">H2M Labs is the legal entity operating every product on this site.</p>
+            </div>
+            <div class="glow-card rounded-xl border border-white/[0.08] bg-[#151821]/70 p-5 text-center sm:text-left">
+              <div class="text-lg" role="img" aria-label="Email">📧</div>
+              <p class="mt-2 text-sm text-white/60 leading-relaxed">Still not sure? Email <a href="mailto:hello@h2mlabs.in" class="text-[#4F7EFF] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">hello@h2mlabs.in</a> and a real person replies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="px-5 sm:px-6 py-20 sm:py-28" aria-labelledby="founder-heading">
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-[#4F7EFF]/90">Founder</span>
+          <h2 id="founder-heading" class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">The person behind all this</h2>
+        </div>
+        <div class="reveal mt-10 rounded-2xl border border-white/[0.08] bg-[#151821] p-8 sm:p-10">
+          <div class="flex flex-col items-center">
+            <div class="h-20 w-20 rounded-full bg-gradient-to-br from-[#4F7EFF]/30 to-[#6366F1]/20 border border-white/[0.08] grid place-items-center text-2xl font-bold text-white/80"
+                 aria-label="Founder initials: HR">
+              HR
+            </div>
+            <div class="mt-4">
+              <div class="text-lg font-semibold text-white">Himanshu Rami</div>
+              <div class="text-sm text-[#4F7EFF]/90">Founder, H2M Labs</div>
+            </div>
+            <p class="mt-6 text-white/60 leading-relaxed max-w-lg text-pretty">
+              Hey — I'm the one building everything here. I'm a developer in India who got fed up with apps that try to do too much, so I started making the lean versions instead. I use every product I ship, every single day. When something annoys me, it gets fixed fast — because I'm the one being annoyed.
+            </p>
+            <a href="https://www.linkedin.com/in/ihimanshu27/" target="_blank" rel="noopener noreferrer"
+               class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-white hover:text-[#4F7EFF] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">
+              Say hi on LinkedIn <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="px-5 sm:px-6 py-20 sm:py-28 scroll-mt-20" aria-labelledby="contact-heading">
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-[#4F7EFF]/90">Contact</span>
+          <h2 id="contact-heading" class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-white">Come say hello</h2>
+          <p class="mt-4 text-white/60 leading-relaxed text-pretty">Got a question about a product? A partnership idea? Spotted a bug, or just feel like chatting? Whatever it is, it lands in my inbox — and I read every one.</p>
+          <div class="mt-8 flex flex-col items-center gap-4">
+            <a href="mailto:hello@h2mlabs.in"
+               class="btn-accent inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4F7EFF] focus-visible:ring-offset-[#0D0F14]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 014.5 5h15A1.5 1.5 0 0121 6.5v11A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5v-11z" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              hello@h2mlabs.in
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/[0.08]">
+    <div class="mx-auto max-w-[1120px] px-5 sm:px-6 py-14">
+      <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="grid place-items-center h-8 w-8 rounded-lg border border-white/[0.08] bg-[#151821]" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M7 5v14M17 5v14M7 12h10" stroke="#4F7EFF" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="text-[15px] font-semibold tracking-tight text-white">H2M Labs</span>
+          </div>
+          <p class="mt-4 text-sm text-white/45 max-w-xs leading-relaxed">Building Software That Works For You.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Products</h3>
+          <ul class="mt-4 space-y-2.5 text-sm" role="list">
+            <li><a href="https://watchmysubs.com" target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">WatchMySubs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Company</h3>
+          <ul class="mt-4 space-y-2.5 text-sm" role="list">
+            <li><a href="#about" class="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">About</a></li>
+            <li><a href="#contact" class="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Legal</h3>
+          <ul class="mt-4 space-y-2.5 text-sm" role="list">
+            <li><a href="/privacy.html" class="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F7EFF] rounded">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+        <p>© 2025 H2M Labs. All rights reserved.</p>
+        <p class="hidden sm:block text-white/25">Building software that works for you.</p>
+        <p>Built in India 🇮🇳</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+    let open = false;
+    const setMenu = (state) => {
+      open = state;
+      menu.classList.toggle('hidden-menu', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    hamburger.addEventListener('click', () => setMenu(!open));
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealAll = () => reveals.forEach(el => el.classList.add('in'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(el => io.observe(el));
+      requestAnimationFrame(() => {
+        reveals.forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+        });
+      });
+      setTimeout(revealAll, 1200);
+    } else {
+      revealAll();
+    }
+
+    const heroWrap = document.querySelector('.hero-wrap');
+    if (heroWrap) {
+      heroWrap.addEventListener('pointermove', (e) => {
+        const r = heroWrap.getBoundingClientRect();
+        heroWrap.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        heroWrap.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    }
+
+    document.querySelectorAll('.glow-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+      });
+    });
+  </script>
+</body>
+</html>
